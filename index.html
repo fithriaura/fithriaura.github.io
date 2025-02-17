@@ -127,6 +127,7 @@
                 width: 100%;
                 transform: none;
                 left: 0;
+                box-shadow: none;
             }
             .nav-container {
                 flex-direction: column;
@@ -138,9 +139,24 @@
                 gap: 10px;
             }
             .container {
-                padding: 140px 20px;
+                padding: 100px 20px; /* Sesuaikan padding pada mobile */
+            }
+            .hero h1 {
+                font-size: 30px; /* Sesuaikan ukuran font hero di mobile */
+            }
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 16px; /* Sesuaikan ukuran font pada tombol di mobile */
+            }
+            .social-icons {
+                gap: 20px; /* Mengurangi jarak antar ikon sosial */
+            }
+            .social-icons a {
+                font-size: 18px; /* Ukuran ikon yang lebih kecil di mobile */
+                padding: 10px;
             }
         }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
