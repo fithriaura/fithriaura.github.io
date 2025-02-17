@@ -6,7 +6,7 @@
     <title>Fithri Aura | Portofolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <style>
-        /* Reset box-sizing untuk memastikan padding dan border tidak mempengaruhi ukuran elemen */
+      
         *, *:before, *:after {
             box-sizing: border-box;
         }
@@ -15,7 +15,7 @@
             font-family: 'Poppins', sans-serif; 
             margin: 0; 
             padding: 0; 
-            background: linear-gradient(135deg, #355e3b, #2f4f4f); /* Gradasi hijau dan biru yang sejuk */
+            background: linear-gradient(135deg, #355e3b, #2f4f4f); 
             color: #f1e1c6;
             min-height: 100vh;
             display: flex;
@@ -25,10 +25,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(90deg, #3a6a3d, #3a5f62); /* Gradasi biru hijau yang lebih tenang */
+            background: linear-gradient(90deg, #3a6a3d, #3a5f62); 
             padding: 15px 5%;
             position: fixed; 
-            width: 100%; /* Sesuaikan lebar menjadi 100% */
+            width: 100%; 
             top: 0;
             left: 0;
             z-index: 1000;
@@ -103,7 +103,7 @@
 
         .social-icons a {
             color: #f1e1c6;
-            font-size: 22px; /* Menurunkan ukuran ikon */
+            font-size: 22px; 
             transition: 0.3s;
             padding: 12px;
             border-radius: 50%;
@@ -124,39 +124,75 @@
             border-top: 1px solid #b3a28c; 
         }
 
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: #f1e1c6;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+
+        .menu {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .menu li {
+            list-style: none;
+        }
+
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
                 padding: 15px 10%;
                 width: 100%;
                 box-shadow: none;
-                position: static; /* Agar nav tidak fixed di mobile */
+                position: static; 
             }
-            .nav-container {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
+
             .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .menu {
+                display: none;
                 flex-direction: column;
+                width: 100%;
+                text-align: center;
                 gap: 10px;
+                margin-top: 20px;
             }
-            .container {
-                padding: 100px 20px; /* Sesuaikan padding pada mobile */
+
+            .menu.active {
+                display: flex;
             }
-            .hero h1 {
-                font-size: 30px; /* Sesuaikan ukuran font hero di mobile */
+
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg);
+                position: relative;
+                top: 6px;
             }
-            .cta-button {
-                padding: 12px 25px;
-                font-size: 16px; /* Sesuaikan ukuran font pada tombol di mobile */
+
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
             }
-            .social-icons {
-                gap: 20px; /* Mengurangi jarak antar ikon sosial */
-            }
-            .social-icons a {
-                font-size: 18px; /* Ukuran ikon yang lebih kecil di mobile */
-                padding: 10px;
+
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg);
+                position: relative;
+                top: -6px;
             }
         }
 
@@ -170,11 +206,17 @@
     <nav>
         <div class="nav-container">
             <div class="owner-name-nav">Fithri Aura</div>
-            <div class="nav-links">
-                <a href="#" onclick="showPage('home')">Home</a>
-                <a href="#" onclick="showPage('about')">About</a>
-                <a href="#" onclick="showPage('contact')">Contact</a>
+            <!-- Hamburger Menu -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
+            <ul class="menu">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('about')">About</a></li>
+                <li><a href="#" onclick="showPage('categories')">Categories</a></li>
+            </ul>
         </div>
     </nav>
     
@@ -186,9 +228,9 @@
     </div>
 
     <div class="social-icons">
-        <!-- Instagram Icon -->
+    
         <a href="https://www.instagram.com/rajngdae" target="_blank" class="fab fa-instagram"></a>
-        <!-- Letterboxd Icon -->
+     
         <a href="https://letterboxd.com/razych" target="_blank" class="fab fa-film"></a>
     </div>
 
@@ -197,20 +239,27 @@
     </footer>
 
     <script>
+
         function showPage(page) {
             let content = document.getElementById("content");
             if (page === 'home') {
                 content.innerHTML = "<h1>Welcome to My Portofolio</h1><a href='#' class='cta-button' onclick='viewProjects()'>View My Projects</a>";
             } else if (page === 'about') {
                 content.innerHTML = "<div class='section'><h1>About Me</h1><p>I am a student at Riau University, currently pursuing a degree in Informatics Engineering. I am passionate about technology and innovation.</p></div>";
-            } else if (page === 'contact') {
-                content.innerHTML = "<div class='section'><h1>Contact Me</h1><p>Email: fithriaura@gmail.com</p></div>";
+            } else if (page === 'categories') {
+                content.innerHTML = "<div class='section'><h1>Categories</h1><p>Belum ada kategori saat ini.</p></div>";
             }
         }
 
         function viewProjects() {
             let content = document.getElementById("content");
             content.innerHTML = "<p>Belum ada project saat ini.</p>";
+        }
+
+  
+        function toggleMenu() {
+            document.querySelector(".menu").classList.toggle("active");
+            document.querySelector(".hamburger").classList.toggle("active");
         }
     </script>
 </body>
