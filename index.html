@@ -151,6 +151,9 @@
                 cursor: pointer;
                 color: #f1e1c6;
                 font-size: 30px;
+                position: absolute;
+                right: 20px;
+                top: 20px;
             }
             .container {
                 padding: 140px 20px;
@@ -212,7 +215,7 @@
         }
 
         function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
+            let navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         }
     </script>
