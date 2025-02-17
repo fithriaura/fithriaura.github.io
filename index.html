@@ -142,9 +142,13 @@
         @media (max-width: 768px) {
             .nav-container {
                 display: flex;
-                justify-content: space-between;
+                justify-content: center;
                 align-items: center;
                 width: 100%;
+            }
+
+            .owner-name-nav {
+                margin-right: auto;
             }
 
             .nav-links {
@@ -163,7 +167,8 @@
                 display: block;
                 position: absolute;
                 right: 20px;
-                top: 20px;
+                top: 50%;
+                transform: translateY(-50%);
             }
 
             .container {
