@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Format Audio | Fithri Aura</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4b8c4e;
+            --secondary-color: #3a5f62;
+            --text-color: #f1e1c6;
+            --text-light: #d3c6b1;
+            --bg-gradient: linear-gradient(135deg, #355e3b, #2f4f4f);
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+        }
+        .audio-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        .audio-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .audio-card h2 {
+            font-size: 1.2rem;
+            margin: 0 0 10px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+        }
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .back-button {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .back-button a {
+            background: var(--primary-color);
+            color: var(--text-color);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .back-button a:hover {
+            background: #3a6a3d;
+            transform: scale(1.05);
+        }
+
+        .audio-card .drive-link a,
+.image-card .drive-link a {
+    color: #ffd700;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-music"></i> 10 Format Audio Digital</h1>
+
+        <div class="grid-container">
+            <div class="audio-card">
+                <h2>MP3</h2>
+                <audio controls>
+                    <source src="assets/audio/Raviv Leibzirer - Variations on Ah vous dirai-je Maman - Var 5.mp3" type="audio/mpeg"
+                      onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='block';">
+                    Browser tidak mendukung format ini.
+                  </audio>
+                  <p class="drive-link" style="display: none;">
+                    Format ini tidak bisa diputar. <a href="https://drive.google.com/yourlink" target="_blank">Dengarkan di Google Drive</a>
+                  </p>
+                  <p>Lossless kualitas tinggi.</p>
+            </div>
+
+            <div class="audio-card">
+                <h2>WAV</h2>
+                <audio controls><source src="assets/audio/Artlist Musical Logos - Angels Calling 1.wav" type="audio/wav"></audio>
+                <p>Format audio mentah.</p>
+            </div>
+
+            <div class="audio-card">
+                <h2>AAC</h2>
+                <audio controls><source src="assets/audio/Raviv Leibzirer - Variations on Ah vous dirai-je Maman - Var 3.aac" type="audio/aac"></audio>
+                <p>Digunakan di Apple.</p>
+            </div>
+
+            <div class="audio-card">
+                <h2>FLAC</h2>
+                <audio controls><source src="assets/audio/Artlist Musical Logos - Fantastic Harp.flac" type="audio/flac"></audio>
+                <p>Lossless kualitas tinggi.</p>
+            </div>
+            <div class="audio-card">
+                <h2>OGG</h2>
+                <audio controls><source src="assets/audio/Raviv Leibzirer - Variations on Ah vous dirai-je Maman - Var 5 (1).ogg" type="audio/ogg"></audio>
+                <p>Open-source fleksibel.</p>
+            </div>
+            
+            <div class="audio-card">
+                <h2>AIFF</h2>
+                <audio controls><source src="assets/audio/example.dsd" type="audio/dsd"></audio>
+                <p>Audio tidak bisa diputar langsung di browser.</p>
+                <div class="drive-link"><a href="https://drive.google.com/file/d/19_QpgMsdzHleYyHag19VlMnt5fbCYKbo/view?usp=drive_link" target="_blank">Dengarkan di Google Drive</a></div>
+            </div>
+
+            <div class="audio-card">
+                <h2>ALAC</h2>
+                <audio controls><source src="assets/audio/example.dsd" type="audio/alac"></audio>
+                <onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='block';>
+                <p>Audio tidak bisa diputar langsung di browser.</p>
+                <div class="drive-link"><a href="https://drive.google.com/file/d/1H7Cqf1_Jo6BvvsGb0_BZxhjMlYp5xJdK/view?usp=drive_link" target="_blank">Dengarkan di Google Drive</a></div>
+              </div>
+            
+            <div class="audio-card">
+                <h2>PCM</h2>
+                <audio controls><source src="assets/Artlist Musical Logos - Good Day.pcm" type="audio/dsd"></audio>
+                <onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='block';>
+                <p>Audio tidak bisa diputar langsung di browser.</p>
+                <div class="drive-link"><a href="https://drive.google.com/file/d/1ar1mi9KWEdi5vdS1VxbmDtZBSKTCp-LP/view?usp=drive_link" target="_blank">Dengarkan di Google Drive</a></div>
+            </div>
+
+            <div class="audio-card">
+                <h2>WMA</h2>
+                <audio controls><source src="assets/audio/example.dsd" type="audio/dsd"></audio>
+                <onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='block';>
+                <p>Audio tidak bisa diputar langsung di browser.</p>
+                <div class="drive-link"><a href="https://drive.google.com/file/d/1PpIrM34fAMZy6S8H3aqkn36DVwVERjSb/view?usp=drive_link" target="_blank">Dengarkan di Google Drive</a></div>
+            </div>
+
+            <div class="audio-card">
+                <h2>OPUS</h2>
+                <audio controls><source src="assets/audio/example.dsd" type="audio/dsd"></audio>
+                <onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='block';>
+                <p>Audio tidak bisa diputar langsung di browser.</p>
+                <div class="drive-link"><a href="https://drive.google.com/file/d/10BYURNk6lyDOorzNybr4O8nZvPKQ--04/view?usp=drive_link" target="_blank">Dengarkan di Google Drive</a></div>
+            </div>
+            
+        </div>
+        <div class="back-button">
+            <a href="index.html">
+                <i class="fas fa-arrow-left"></i> Kembali ke Home
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.audio-card').forEach(card => {
+            const audio = card.querySelector('audio');
+            const source = audio.querySelector('source');
+            const isPlayable = audio.canPlayType(source.type);
+            if (!isPlayable || isPlayable === '') {
+                card.querySelector('.drive-link').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

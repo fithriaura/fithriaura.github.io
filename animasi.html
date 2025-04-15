@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Format Video | Fithri Aura</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4b8c4e;
+            --secondary-color: #3a5f62;
+            --text-color: #f1e1c6;
+            --text-light: #d3c6b1;
+            --bg-gradient: linear-gradient(135deg, #355e3b, #2f4f4f);
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+        .video-row {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .row-1 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .row-2 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .row-3 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .video-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .video-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .video-card h2 {
+            font-size: 1.2rem;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        video {
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .back-button {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .back-button a {
+            background: var(--primary-color);
+            color: var(--text-color);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .back-button a:hover {
+            background: #3a6a3d;
+            transform: scale(1.05);
+        }
+
+        .drive-link {
+        color: #ffd700; 
+        font-weight: bold; 
+        text-decoration: underline; 
+        font-size: 16px; 
+        margin-top: 10px;
+        }
+
+        .drive-link:hover {
+        color: #2c8e40; 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-video"></i> 10 Contoh Animasi</h1>
+
+        <!-- Baris 1 (3 video) -->
+        <div class="video-row row-1">
+            <div class="video-card">
+                <h2>Animasi 2D</h2>
+                <video controls>
+                    <source src="assets 4/animasi/2D Animation.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="video-card">
+                <h2>Animasi 3D</h2>
+                <video controls>
+                    <source src="assets 4/animasi/3D Animasi.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="video-card">
+                <h2>Mothion Graphic</h2>
+                <video controls>
+                    <source src="assets 4/animasi/Oreo Motion Graphic Ad.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <!-- Baris 2 (3 video) -->
+        <div class="video-row row-2">
+            <div class="video-card">
+                <h2>Cell Animation </h2>
+                <video controls>
+                    <source src="assets 4/animasi/Cell Animation.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="video-card">
+                <h2>Whiteboard Animation</h2>
+                <video controls>
+                    <source src="assets 4/animasi/How can the Elephant in the Room help Leaders create Candid Culture _(powered by Scribology!).mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="video-card">
+                <h2>Silhouette animation</h2>
+                <video controls>
+                    <source src="assets 4/animasi/Siluet Animasi - Trim.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <!-- Baris 3 (4 video) -->
+        <div class="video-row row-3">
+            <div class="video-card">
+                <h2>Sprite Animation</h2>
+                <video controls>
+                    <source src="assets 4/animasi/videoplayback (1).mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="video-card">
+                <h2>Clay Animation</h2>
+                <video controls>
+                    <source src="assets 4/animasi/Clay Animation.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="video-card">
+                <h2>Rotoscoping Animation </h2>
+                <video controls>
+                    <source src="assets 4/animasi/A Scanner Darkly.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="video-card">
+                <h2>Stop Motion</h2>
+                <video controls>
+                    <source src="assets 4/animasi/Stop Motion.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="back-button">
+            <a href="index.html">
+                <i class="fas fa-arrow-left"></i> Kembali ke Home
+            </a>
+        </div>
+    </div>
+</body>
+</html>

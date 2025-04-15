@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Format Gambar | Fithri Aura</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Open+Sans&family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4b8c4e;
+            --secondary-color: #3a5f62;
+            --text-color: #f1e1c6;
+            --text-light: #d3c6b1;
+            --bg-gradient: linear-gradient(135deg, #355e3b, #2f4f4f);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .font-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .font-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .font-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .font-name {
+            font-size: 1.5rem;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .font-example {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-button {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .back-button a {
+            background: var(--primary-color);
+            color: var(--text-color);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .back-button a:hover {
+            background: #3a6a3d;
+            transform: scale(1.05);
+        }
+
+        .last-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-font"></i> 10 Font Populer</h1>
+
+        <div class="font-grid">
+            <div class="font-card" style="font-family: 'Times New Roman', sans-serif">
+                <h2 class="font-name">Times New Roman</h2>
+                <p class="font-example">Font modern yang mudah dibaca.</p>
+            </div>
+
+            <div class="font-card" style="font-family: Arial, sans-serif;">
+                <h2 class="font-name">Arial</h2>
+                <p class="font-example">Font geometris dengan karakter yang kuat.</p>
+            </div>
+
+            <div class="font-card" style="font-family:  Calibri, sans-serif;">
+                <h2 class="font-name">Calibri</h2>
+                <p class="font-example">Font humanis dengan kesan profesional.</p>
+            </div>
+
+            <div class="font-card" style="font-family: 'Open Sans', sans-serif">
+                <h2 class="font-name">Open Sans</h2>
+                <p class="font-example">Font bersih dan ramah di berbagai layar.</p>
+            </div>
+
+            <div class="font-card" style="font-family: 'Roboto', sans-serif;">
+                <h2 class="font-name">Roboto</h2>
+                <p class="font-example">Font modern dengan sudut yang membulat.</p>
+            </div>
+
+            <div class="font-card" style="font-family: Helvetica, sans-serif;">
+                <h2 class="font-name">Helvetica</h2>
+                <p class="font-example">Font elegan dan ringan untuk heading.</p>
+            </div>
+
+            <div class="font-card" style="font-family: Garamond, serif;">
+                <h2 class="font-name">Garamond</h2>
+                <p class="font-example">Font membulat dengan nuansa lembut.</p>
+            </div>
+
+            <div class="font-card" style="font-family: Baskerville, serif;">
+                <h2 class="font-name">Baskerville</h2>
+                <p class="font-example">Font serif yang nyaman dibaca untuk paragraf.</p>
+            </div>
+        </div>
+
+        <!-- Baris terakhir: 2 font di tengah -->
+        <div class="last-row">
+            <div class="font-card" style="font-family: 'Montserrat', sans-serif;">
+                <h2 class="font-name">Montserrat</h2>
+                <p class="font-example">Font serif klasik untuk tampilan mewah.</p>
+            </div>
+
+            <div class="font-card" style="font-family: 'Oswald', sans-serif">
+                <h2 class="font-name">Oswald</h2>
+                <p class="font-example">Font tegas dan cocok untuk headline.</p>
+            </div>
+        </div>
+
+        <div class="back-button">
+            <a href="projects.html">
+                <i class="fas fa-arrow-left"></i> Kembali ke Projects
+            </a>
+        </div>
+    </div>
+</body>
+</html>

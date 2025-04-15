@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fithri Aura | Portofolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4b8c4e;
+            --secondary-color: #3a5f62;
+            --text-color: #f1e1c6;
+            --text-light: #d3c6b1;
+            --bg-gradient: linear-gradient(135deg, #355e3b, #2f4f4f);
+            --nav-gradient: linear-gradient(90deg, #3a6a3d, #3a5f62);
+        }
+
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: var(--bg-gradient); 
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        nav { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--nav-gradient); 
+            padding: 15px 5%;
+            position: fixed; 
+            width: 100%; 
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .owner-name-nav {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-color);
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        nav a { 
+            color: var(--text-color); 
+            text-decoration: none; 
+            font-size: 16px; 
+            font-weight: 500; 
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+
+        nav a:hover, 
+        nav a.active { 
+            background: rgba(181, 139, 95, 0.3); 
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            color: var(--text-color);
+            font-size: 24px;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 40px 0;
+            flex: 1;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .hero h1 { 
+            font-size: 3.5rem; 
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--text-light);
+        }
+
+        .cta-button {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .cta-button:hover {
+            background: #2d6f32;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icons {
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            padding: 12px;
+            border-radius: 50%;
+            background: rgba(181, 139, 95, 0.3);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        footer { 
+            background: var(--secondary-color); 
+            color: var(--text-color); 
+            text-align: center; 
+            padding: 20px; 
+            border-top: 1px solid rgba(179, 162, 140, 0.3); 
+        }
+
+        /* Projects Page Styles */
+        .projects-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .projects-header h1 {
+            font-size: 3.5rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card h3 {
+            color: var(--text-color);
+            font-size: 1.4rem;
+            margin: 0 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .project-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background: rgba(75, 140, 78, 0.3);
+            color: var(--text-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 15px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--primary-color);
+        }
+
+        .project-link i {
+            margin-left: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover i {
+            transform: translateX(3px);
+        }
+
+        /* About and Contact Sections */
+        .about-section, 
+        .contact-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .about-section h1, 
+        .contact-section h1 {
+            font-size: 3.5rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .about-section p, 
+        .contact-section p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .back-button {
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-wrap: wrap;
+                padding: 10px 20px;
+            }
+
+            .owner-name-nav {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: rgba(58, 95, 98, 0.9);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 20px;
+                border-radius: 0 0 10px 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .container {
+                margin-top: 80px;
+                padding: 20px;
+            }
+
+            .hero h1, 
+            .projects-header h1, 
+            .about-section h1, 
+            .contact-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1, 
+            .projects-header h1, 
+            .about-section h1, 
+            .contact-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="owner-name-nav">Fithri Aura</div>
+            <div class="nav-links">
+                <a href="#" class="active" data-page="home">Home</a>
+                <a href="#" data-page="about">About</a>
+                <a href="#" data-page="projects">Projects</a>
+                <a href="#" data-page="contact">Contact</a>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="hero">
+                <h1>Welcome to My Portfolio</h1>
+                <p>I'm a passionate Informatics Engineering student at Riau University</p>
+                <a href="#" class="cta-button" data-page="projects">View My Projects</a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="https://www.instagram.com/rajngdae" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://letterboxd.com/razych" target="_blank" aria-label="Letterboxd">
+                    <i class="fab fa-film"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <div class="about-section">
+                <h1>About Me</h1>
+                <p>I am a student at Riau University, currently pursuing a degree in Informatics Engineering. I am passionate about technology and innovation. I'm constantly learning new technologies and frameworks to expand my knowledge and improve my craft.</p>
+                <p>When I'm not coding, you can find me watching films, exploring new technologies, etc.</p>
+                
+                <div class="back-button">
+                    <a href="#" class="cta-button" data-page="home">Back to Home</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Page -->
+        <div id="projects" class="page">
+            <div class="projects-header">
+                <h1>My Projects</h1>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3>TEKS</h3>
+                    <div class="project-tech">
+                    </div>
+                    <p>Teks merupakan unit bahasa utuh yang digunakan dalam komunikasi dengan struktur internal yang teratur melalui hubungan kohesif antarunsurnya dan selalu terikat oleh konteks situasi.</p>
+                    <a href="teks.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3>GAMBAR</h3>
+                    <div class="project-tech">
+                    </div>
+                    <p>Gambar adalah media visual dua dimensi yang berfungsi menyederhanakan informasi abstrak</p>
+                    <a href="gambar.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <h3>AUDIO</h3>
+                    <div class="project-tech">
+                    </div>
+                    <p>Audio dalam sistem multimedia adalah representasi suara yang diubah dari sinyal analog menjadi sinyal digital melalui proses konversi</p>
+                    <a href="audio.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <h3>VIDEO</h3>
+                    <div class="project-tech">
+                    </div>
+                    <p>Video adalah media yang mengirimkan sinyal audio yang dipadukan dengan gambar secara sekuensial</p>
+                    <a href="video.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <h3>ANIMASI</h3>
+                    <div class="project-tech">
+                    </div>
+                    <p>Animasi merupakan proses menyeluruh yang melibatkan perancangan, penggambaran, serta penataan gambar secara sistematis untuk kemudian diintegrasikan ke dalam media multimedia</p>
+                    <a href="animasi.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <h3>LAPORAN</h3>
+                    <div class="project-tech">
+                    </div>
+                    <p>Berikut adalah laporan dari UTS Sistem MUltimedia : Teks, Gambar, Audio, Video, dan Animasi</p>
+                    <a href="assets5/laporan/UTS SISTEM MULTIMEDIA_FITHRI AURA_TI A.pdf" target="_blank" class="project-link">Open PDF <i class="fas fa-file-pdf"></i></a>
+                </div>
+            </div>
+            
+            <div class="back-button">
+                <a href="index.html" class="cta-button" data-page="home">Back to Home</a>
+            </div>
+        </div>
+        
+        <div id="contact" class="page">
+            <div class="contact-section">
+                <h1>Contact Me</h1>
+                <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision. Feel free to reach out through any of the channels below.</p>
+                <p><strong>Email:</strong> fithriaura@gmail.com</p>
+                <p><strong>Phone:</strong> +62 812-3456-7890</p>
+                <p><strong>Social Media:</strong> Connect with me on Instagram or Letterboxd using the links in the footer.</p>
+                
+                <div class="back-button">
+                    <a href="#" class="cta-button" data-page="home">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; <span id="current-year"></span> Fithri Aura. All Rights Reserved.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            const navLinks = document.querySelectorAll('[data-page]');
+            const pages = document.querySelectorAll('.page');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-links');
+            
+            function showPage(pageId) {
+            
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                document.getElementById(pageId).classList.add('active');
+                
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('data-page') === pageId);
+                });
+                
+                navMenu.classList.remove('active');
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    showPage(pageId);
+                });
+            });
+            
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+        
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-container') && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+            
+            showPage('home');
+        });
+    </script>
+</body>
+</html>
