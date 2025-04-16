@@ -69,6 +69,12 @@
       object-fit: cover;
       border-radius: 5px;
       margin-bottom: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .project-card img:hover {
+      transform: scale(1.03);
     }
 
     .project-card .drive-link {
@@ -102,6 +108,51 @@
       background: #3a6a3d;
       transform: scale(1.05);
     }
+
+    /* Lightbox Styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 90vh;
+      border: 3px solid var(--text-light);
+      border-radius: 5px;
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .close-lightbox:hover {
+      color: var(--primary-color);
+    }
   </style>
 </head>
 <body>
@@ -109,94 +160,113 @@
     <h1><i class="fas fa-image"></i> 10 Format Gambar Digital</h1>
 
     <div class="projects-grid">
+      <!-- Lightbox container -->
+      <div class="lightbox" id="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-content">
+          <img id="lightbox-image" src="" alt="Zoomed Image">
+        </div>
+      </div>
+
+      <!-- Project cards -->
       <div class="project-card">
-        <h3>JPEG</h3>
-        <img src="assets3/gambar/the-chaffins-oUQJLahheWE-unsplash.jpg" alt="Contoh JPEG"
+        <h3>JPG</h3>
+        <img src="assets3/gambar/JPG.jpg" alt="Contoh JPG" class="lightbox-trigger"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
         <p class="drive-link">
             Gambar tidak bisa ditampilkan langsung di browser <a href="https://drive.google.com/file/d/1EXAMPLE1/view" target="_blank">Lihat di Google Drive</a>
         </p>
+         <p>Format kompresi lossy. Ukuran kecil, kualitas oke</p>
       </div>
 
       <div class="project-card">
         <h3>PNG</h3>
-        <img src="assets3/gambar/PNG.png" alt="Contoh PNG"
+        <img src="assets3/gambar/PNG.png" alt="Contoh PNG" class="lightbox-trigger"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
         <p class="drive-link">
             Gambar tidak bisa ditampilkan langsung di browser <a href="https://drive.google.com/file/d/1EXAMPLE1/view" target="_blank">Lihat di Google Drive</a>
         </p>
+        <p>Lossless (kualitas tetap, tapi ukuran lebih besar)</p>
       </div>
 
       <div class="project-card">
         <h3>AVIF</h3>
-        <img src="assets 4/animasi/jakob-owens-xV7y67mA574-unsplash-min.jpg" alt="Contoh AVIF"
+        <img src="assets3/gambar/AVIF.avif" alt="Contoh AVIF" class="lightbox-trigger"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
         <p class="drive-link">
             Gambar tidak bisa ditampilkan langsung di browser <a href="https://drive.google.com/file/d/1EXAMPLE1/view" target="_blank">Lihat di Google Drive</a>
         </p>
+        <p>Sangat efisien (lossy/lossless), ukuran file Jauh lebih kecil dari JPG/PNG dengan kualitas sama</p>
       </div>
 
       <div class="project-card">
         <h3>WEBP</h3>
-        <img src="assets3/gambar/pexels-pixabay-53184.webp" alt="Contoh WEBP"
+        <img src="assets3/gambar/WEBP.webp" alt="Contoh WEBP" class="lightbox-trigger"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
         <p class="drive-link">
             Gambar tidak bisa ditampilkan langsung di browser <a href="https://drive.google.com/file/d/1EXAMPLE1/view" target="_blank">Lihat di Google Drive</a>
         </p>
+        <p>Kompresi Lossy & lossless, ukuran lebih kecil dari JPG/PNG </p>
       </div>
 
       <div class="project-card">
         <h3>SVG</h3>
-        <img src="assets3/gambar/file.svg" alt="Contoh SVG"
+        <img src="assets3/gambar/SVG.svg" alt="Contoh SVG" class="lightbox-trigger"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
         <p class="drive-link">
             Gambar tidak bisa ditampilkan langsung di browser <a href="https://drive.google.com/file/d/1YGPMDt5QpfnjXi3fHq_AUHxaIFuhI8cL/view?usp=drive_link" target="_blank">Lihat di Google Drive</a>
         </p>
+        <p>Format gambar vektor</p>
       </div>
 
       <div class="project-card">
         <h3>BMP</h3>
-        <img src="assets5/laporan/BMP.png" alt="Contoh BMP"
+        <img src="assets3/gambar/BMP.jpg" alt="Contoh BMP" class="lightbox-trigger"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
         <p class="drive-link">
             Gambar tidak bisa ditampilkan langsung di browser <a href="https://drive.google.com/file/d/1EXAMPLE1/view" target="_blank">Lihat di Google Drive</a>
         </p>
+        <p>Kompresi tidak ada (lossless asli), ukuran file sangat besar</p>
       </div>
 
       <div class="project-card">
-        <h3>TIFF</h3>
-        <img src="assets3/gambar/huy-phan-glw2Yfc_dIU-unsplash.tiff" alt="Contoh TIFF"
+        <h3>ICO</h3>
+        <img src="assets3/gambar/ICO.ico" alt="Contoh TIFF" class="lightbox-trigger"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
         <p class="drive-link">
             Gambar tidak bisa ditampilkan langsung di browser. <a href="https://drive.google.com/file/d/1q1bbK2SUzfvCRCv4JEbfG3qJO2sznaht/view?usp=drive_link" target="_blank">Lihat di Google Drive</a>
         </p>
+        <p>Format khusus untuk ikon aplikasi atau favicon web. Bisa simpan banyak ukuran sekaligus</p>
       </div>
 
       <div class="project-card">
         <h3>RAW</h3>
-        <img src="assets3/gambar/pexels-arthousestudio-4588886_1744088314.raw" alt="Contoh RAW"
+        <img src="assets3/gambar/RAW.raw" alt="Contoh RAW" class="lightbox-trigger"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
         <p class="drive-link">
             Gambar tidak bisa ditampilkan langsung di browser <a href="https://drive.google.com/file/d/1EXAMPLE1/view" target="_blank">Lihat di Google Drive</a>
         </p>
+        <p>Format asli dari kamera digital</p>
       </div>
 
       <div class="project-card">
-        <h3>PSD</h3>
-        <img src="pexels-bibhukalyan-1579699.psd" alt="Contoh PSD"
+        <h3>JFIF</h3>
+        <img src="assets3/gambar/JFIF.jfif" alt="Contoh JFIF" class="lightbox-trigger"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
         <p class="drive-link">
             Gambar tidak bisa ditampilkan langsung di browser. <a href="https://drive.google.com/file/d/1iEH-eyQmzR85tdYO8iGMsxC3J5hksoJX/view?usp=drive_link" target="_blank">Lihat di Google Drive</a>
         </p>
+        <p>Turunan dari JPEG</p>
       </div>
 
       <div class="project-card">
-        <h3>HEIF</h3>
-        <img src="assets3/gambar/c340935b-eec0-4873-8427-138f42bcae1c.heif" alt="Contoh HEIF"
+        <h3>JPE</h3>
+        <img src="assets3/gambar/JPE.jpe" alt="Contoh JPE" class="lightbox-trigger"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
         <p class="drive-link">
             Gambar tidak bisa ditampilkan langsung di browser <a href="https://drive.google.com/file/d/1EXAMPLE1/view" target="_blank">Lihat di Google Drive</a>
         </p>
+        <p>Versi lain dari .JPG atau .JPEG</p>
       </div>
     </div>
 
@@ -206,5 +276,43 @@
       </a>
     </div>
   </div>
+
+  <script>
+    // Lightbox functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-image');
+      const closeBtn = document.querySelector('.close-lightbox');
+      const triggers = document.querySelectorAll('.lightbox-trigger');
+
+      // Open lightbox when image is clicked
+      triggers.forEach(trigger => {
+        trigger.addEventListener('click', function() {
+          lightbox.classList.add('active');
+          lightboxImg.src = this.src;
+          lightboxImg.alt = this.alt;
+        });
+      });
+
+      // Close lightbox when X is clicked
+      closeBtn.addEventListener('click', function() {
+        lightbox.classList.remove('active');
+      });
+
+      // Close lightbox when clicking outside the image
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('active');
+        }
+      });
+
+      // Close lightbox with ESC key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+          lightbox.classList.remove('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
